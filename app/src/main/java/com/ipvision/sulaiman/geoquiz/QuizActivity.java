@@ -1,5 +1,6 @@
 package com.ipvision.sulaiman.geoquiz;
 
+import android.content.Intent;
 import android.content.pm.ProviderInfo;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private Button mTrueButton;
     private Button mFalseButton;
     private TextView mQuestionTextView;
-    private Button mNextButton, mPrevButton;
+    private Button mNextButton,mCheatButton;
 
 
     private Question[] mQuestions = new Question[]{
@@ -70,14 +71,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         mTrueButton = (Button) findViewById(R.id.true_button);
         mFalseButton = (Button) findViewById(R.id.false_button);
         mNextButton = (Button) findViewById(R.id.next_button);
-        mPrevButton = (Button) findViewById(R.id.prev_button);
+        mCheatButton = (Button) findViewById(R.id.cheat_button);
 
         mTrueButton.setOnClickListener(this);
         mFalseButton.setOnClickListener(this);
         mNextButton.setOnClickListener(this);
         mQuestionTextView.setOnClickListener(this);
-        mPrevButton.setOnClickListener(this);
-
+        mCheatButton.setOnClickListener(this);
         updateQuestion();
 
 
@@ -105,9 +105,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(QuizActivity.this, "Next Question:", Toast.LENGTH_SHORT).show();
                 Toast.makeText(QuizActivity.this, mQuestions[mCurrentIndex + 1].getTextResID(), Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.prev_button:
-                mCurrentIndex = (mCurrentIndex - 1 + mQuestions.length) % mQuestions.length;
-                updateQuestion();
+            case R.id.cheat_button:
+                Intent intent = new Intent(this,CheatActivity.class);
+                startActivity(intent);
                 break;
         }
 
