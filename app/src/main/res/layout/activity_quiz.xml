@@ -15,8 +15,7 @@
     <TextView
         android:id="@+id/quiz_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/question_text"/>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,11 +42,25 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/next_button"
-        android:text="@string/next_button"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/prev_button"
+            android:text="@string/prev_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:text="@string/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>
